@@ -1,0 +1,20 @@
+{
+  "name": "oidc-auth",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lit": "^3.1.4",
+    "oidc-client-ts": "^3.0.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.8.3",
+    "typescript": "^5.5.3",
+    "vite": "^5.4.0"
+  }
+}
