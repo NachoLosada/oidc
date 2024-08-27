@@ -1,12 +1,20 @@
 import { html, css, LitElement } from "lit";
-import { login, logout, getUser } from "./../src/oidc-autentication/user-manager";
+import { login, logout, getUser, userManager } from "./../src/oidc-autentication/user-manager";
 
 class App extends LitElement {
   static styles = css`
-    /* Estilos aquí */
   `;
 
   async firstUpdated() {
+    if (window.location.search.includes("code=")) {
+      try {
+        await userManager.signinCallback();
+        console.log("Sign-in callback handled");
+      } catch (error) {
+        console.error("Error handling sign-in callback", error);
+      }
+    }
+
     const user = await getUser();
     if (user) {
       console.log("User:", user);
@@ -20,6 +28,8 @@ class App extends LitElement {
       <div>
         <button @click=${login}>Login</button>
         <button @click=${logout}>Logout</button>
+        <button @click=${getUser}>Get User</button>
+
       </div>
     `;
   }

@@ -11,6 +11,8 @@ export const logout = () => {
   userManager.signoutRedirect();
 };
 
-export const getUser = () => {
+export const getUser = async () => {
+  console.log(await userManager.getUser());
+
   return userManager.getUser();
 };
