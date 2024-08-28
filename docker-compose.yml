@@ -1,0 +1,9 @@
+services:
+  front:
+    image: node:18
+    volumes:
+      - .:/code
+    working_dir: /code
+    ports:
+      - 5173:5173
+    command: tail -f /dev/null
